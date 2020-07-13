@@ -1,0 +1,14 @@
+@import '/src/stylesheets/cookieWrapper';
+@import '/src/stylesheets/header';
+@import '/src/stylesheets/item';
+@import '/src/stylesheets/footer';
+
+*{
+  margin: 0;
+  padding:0;
+}
+
+html{
+  font-size:62.5%;
+}
+

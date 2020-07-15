@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './stylesheets/style.scss';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import ItemCursor from './Components/ItemCursor';
-import ItemFlower from './Components/ItemFlower';
-import ItemBasket from './Components/ItemBasket';
+import Item from './Components/Item';
 
 
 class App extends React.Component {
@@ -18,9 +16,7 @@ class App extends React.Component {
       flowerQuanity:0,
       basketQuanity:0,
     }
-    this.handleCursorClick = this.handleCursorClick.bind(this);
-    this.handleFlowerClick = this.handleFlowerClick.bind(this);
-    this.handleBasketClick = this.handleBasketClick.bind(this);
+    this.handleBuyItemClick = this.handleBuyItemClick.bind(this);
   }
 
   componentDidMount() {
@@ -30,10 +26,23 @@ class App extends React.Component {
     );
   }
 
+  handleBuyItemClick(e) {
+    const target = e.target;
+  if(target.name === 'cursor'){
+    this.setState({cursorQuanity: this.state.cursorQuanity + 1})
+  }else if(target.name === 'flower'){
+    this.setState({flowerQuanity: this.state.flowerQuanity + 1})
+  }else if(target.name === 'basket'){
+    this.setState({basketQuanity: this.state.basketQuanity + 1})
+  }
+
+  }
+
   makeCookie() {
     const cursorQuanity = this.state.cursorQuanity;
     const flowerQuanity = this.state.flowerQuanity;
-    const persecond = cursorQuanity + flowerQuanity * 100;
+    const basketQuanity = this.state.basketQuanity;
+    const persecond = cursorQuanity + flowerQuanity * 100 + basketQuanity * 1000;
     this.setState({ persecond: persecond })
     this.setState( { count: this.state.count + persecond})
   }
@@ -41,19 +50,6 @@ class App extends React.Component {
   handleClick() {
     this.setState({count: this.state.count + 1});
   }
-
-  handleCursorClick() {
-      this.setState({cursorQuanity: this.state.cursorQuanity + 1});
-    }
-
-  handleFlowerClick() {
-    this.setState({flowerQuanity: this.state.flowerQuanity + 1});
-  }
-  handleBasketClick() {
-    this.setState({basketQuanity: this.state.basketQuanity + 1});
-  }
-
-
 
   render() {
     return (
@@ -71,28 +67,26 @@ class App extends React.Component {
           <p className="incrementalNumber">{this.state.persecond} persecond</p>
         </div>
         <div className="itemList">
-          <ItemCursor name={"cursor"}
+          <Item
+            name={"cursor"}
+            text={`The cursor is the basis of cookie production.\n Work exactly as your hand.`}
             src={"src/images/cursor.png"}
-            handleCursorClick={this.handleCursorClick}
-            cursorQuanity={this.state.cursorQuanity}/>
+            handleBuyItemClick={this.handleBuyItemClick}
+            quanity={this.state.cursorQuanity}/>
 
-          <ItemFlower name={"flower"}
+          <Item
+            name={"flower"}
+            text={"The flower is great.\n For the reason, The flower can make cokkie."}
             src={"src/images/flower.png"}
-            handleFlowerClick={this.handleFlowerClick}
-            flowerQuanity={this.state.flowerQuanity}/>
+            handleBuyItemClick={this.handleBuyItemClick}
+            quanity={this.state.flowerQuanity}/>
 
-          <ItemBasket name={"basket"}
+          <Item
+            name={"basket"}
+            text={"Since ancient times, Cookies are known to live in baskets"}
             src={"src/images/basket.png"}
-            handleBasketClick={this.handleBasketClick}
-            basketQuanity={this.state.basketQuanity}/>
-
-
-
-
-          {/*
-
-          <Item name={"basket"} src={"src/images/basket.png"}/>
-          <Item name={"basket"} src={"src/images/basket.png"}/> */}
+            handleBuyItemClick={this.handleBuyItemClick}
+            quanity={this.state.basketQuanity}/>
         </div>
         <Footer/>
       </div>

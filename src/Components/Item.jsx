@@ -1,20 +1,20 @@
 import React from 'react';
 
 
-export default class ItemCusor extends React.Component {
+export default class Item extends React.Component {
 
   render() {
     return(
       <div className="itemContainer">
-        <div className="popMessage">The cursor is the basis of cookie production.<br/> Work exactly as your hand.</div>
+        <div className="popMessage">{this.props.text}</div>
         <img className="img" src={this.props.src}/>
         <div className="itemDesc">
           <p className="itemName">{this.props.name}</p>
           <p className="itemQuantity">
-            Quantity:{this.props.cursorQuanity}
+            Quantity:{this.props.quanity}
           </p>
         </div>
-        <button onClick={this.props.handleCursorClick}>Buy</button>
+        <button onClick={this.props.handleBuyItemClick} name={this.props.name}>Buy</button>
       </div>
     )
   }

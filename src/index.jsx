@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './stylesheets/style.scss';
-import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Item from './Components/Item';
 
@@ -28,14 +27,13 @@ class App extends React.Component {
 
   handleBuyItemClick(e) {
     const target = e.target;
-  if(target.name === 'cursor'){
-    this.setState({cursorQuanity: this.state.cursorQuanity + 1})
-  }else if(target.name === 'flower'){
-    this.setState({flowerQuanity: this.state.flowerQuanity + 1})
-  }else if(target.name === 'basket'){
-    this.setState({basketQuanity: this.state.basketQuanity + 1})
-  }
-
+    if(target.name === 'cursor'){
+      this.setState({cursorQuanity: this.state.cursorQuanity + 1})
+    }else if(target.name === 'flower'){
+      this.setState({flowerQuanity: this.state.flowerQuanity + 1})
+    }else if(target.name === 'basket'){
+      this.setState({basketQuanity: this.state.basketQuanity + 1})
+    }
   }
 
   makeCookie() {
@@ -54,7 +52,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
         <div className="cookieWrapper">
           <div className="cookieContainer">
             <img

@@ -1,39 +1,55 @@
 .cookieWrapper{
+  position: relative;
+  padding-top: 50px;
   margin: 0 auto;
+  width:100%;
+  height: 500px;
+  background: linear-gradient(0deg,#fff,#734e30);
+  img{
+    position: absolute;
+    width:100%;
+    height: 100%;
+  }
 }
 
 .cookieContainer{
+  position: relative;
+  margin: 0 auto;
+  padding-bottom:50px ;
   width: 300px;
   height: 300px;
-  margin: 0 auto;
     .img{
-      width: 300px;
-      height: 300px;
+      @extend .cookieContainer;
       cursor: pointer;
     }
 }
 
 .cookieContainer:active {
   .img{
-    width:290px;
+    width: 290px;
     height: 290px;
   }
 }
 
 .cookieCounter{
-  font-size: 1.5rem;
+  position: relative;
+  font-size: 2rem;
   text-align: center;
 }
 
 .incrementalNumber{
-  font-size: 1.5rem;
+  position: relative;
+  font-size: 1.8rem;
   text-align: center;
 }
+
 
 .itemList{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin:50px auto;
   height: 300px;
+  margin:50px auto;
+  background: linear-gradient(180deg,#fff,#734e30);
+
 }

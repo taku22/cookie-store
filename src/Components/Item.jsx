@@ -13,6 +13,7 @@ export default class Item extends React.Component {
           <p className="itemQuantity">
             Quantity:{this.props.quanity}
           </p>
+          <p className="itemAmount">Amount: {this.props.amount}</p>
         </div>
         <button onClick={this.props.handleBuyItemClick} name={this.props.name}>Buy</button>
       </div>

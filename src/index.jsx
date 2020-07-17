@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './stylesheets/style.scss';
 import Footer from './Components/Footer';
 import Item from './Components/Item';
+import cookie from './images/cookie.png';
+import cursor from './images/cursor.png';
+import flower from './images/flower.png';
+import basket from './images/basket.png';
 
 
 class App extends React.Component {
@@ -61,7 +65,7 @@ class App extends React.Component {
           <div className="cookieContainer">
             <img
             className="img"
-            src="src/images/cookie.png"
+            src={cookie}
             onClick={this.handleClick.bind(this)}
             />
           </div>
@@ -72,7 +76,7 @@ class App extends React.Component {
           <Item
             name={"cursor"}
             text={`The cursor is the basis of cookie production.\n Work exactly as your hand.`}
-            src={"src/images/cursor.png"}
+            src={cursor}
             handleBuyItemClick={this.handleBuyItemClick}
             quanity={this.state.cursorQuanity}
             amount={this.state.cursorItemAmount}/>
@@ -80,7 +84,7 @@ class App extends React.Component {
           <Item
             name={"flower"}
             text={"The flower is great.\n For the reason, The flower can make cokkie."}
-            src={"src/images/flower.png"}
+            src={flower}
             handleBuyItemClick={this.handleBuyItemClick}
             quanity={this.state.flowerQuanity}
             amount={this.state.flowerItemAmount}/>
@@ -88,7 +92,7 @@ class App extends React.Component {
           <Item
             name={"basket"}
             text={"Since ancient times, Cookies are known to live in baskets"}
-            src={"src/images/basket.png"}
+            src={basket}
             handleBuyItemClick={this.handleBuyItemClick}
             quanity={this.state.basketQuanity}
             amount={this.state.basketItemAmount}/>
